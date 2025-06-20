@@ -12,8 +12,6 @@ build/
 # OS
 .DS_Store
 
-# Karate
-karate-reports/
 
 # Logs
 *.log
