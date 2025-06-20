@@ -1,9 +1,10 @@
 Feature: Test de API súper simple
 
-  Background:
-    * configure ssl = true
-
-  Scenario: Verificar que un endpoint público responde 200
-    Given url 'https://httpbin.org/get'
-    When method get
+  @getcharacters
+  Scenario: Get characters
+    Given url 'http://bp-se-test-cabcd9b246a5.herokuapp.com/testuser/api/characters'
+    When method GET
     Then status 200
+    And print response
+
+  
