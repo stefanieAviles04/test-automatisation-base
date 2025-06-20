@@ -13,12 +13,20 @@ Feature: Test de API súper simple
   @createcharacter
   Scenario: Create character success
     Given url urlBase
-    And request {"name": "Black Widow ChapterFinalTest","alterego": "Natasha Romanoff","description": "Brave women","powers": ["Guns", "Fight"]}
+    And request {"name": "Black Widow ChapterTest","alterego": "Natasha Romanoff","description": "Brave women","powers": ["Guns", "Fight"]}
     And header Content-Type = 'application/json'
     When method POST
     Then status 201
     And def personajeId = response.id
     And print 'ID character created:', personajeId
+
+  @updatecharacter
+  Scenario: update character success
+    Given url urlBase + '/2566'
+    And request {"name": "Scarlet Witch","alterego": "Wanda Django Maximoff","description": "Magic woman","powers": ["Magic", "Powerful"]}
+    And header Content-Type = 'application/json'
+    When method PUT
+    Then status 200
 
   @characterlifecycle
   Scenario: Create, update  and delete character
